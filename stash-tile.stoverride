@@ -1,0 +1,29 @@
+name: BWG数据用量
+desc: "BWG数据用量查询"
+
+arguments-version: 1
+arguments:
+  BWG_VEID:
+    type: input
+    title: "BWG VEID"
+    description: "KiwiVM 中对应 VPS 的 VEID"
+    required: true
+  BWG_API_KEY:
+    type: input
+    title: "BWG API Key"
+    description: "KiwiVM 中对应 VPS 的 API Key"
+    required: true
+
+tiles:
+  - name: bwg-usage
+    interval: 43200
+    title: "数据用量"
+    content: "正在获取流量..."
+    icon: "network"
+    backgroundColor: "#F02D55"
+    argument: '{"BWG_VEID":${args.BWG_VEID|json},"BWG_API_KEY":${args.BWG_API_KEY|json}}'
+
+script-providers:
+  bwg-usage:
+    url: "https://raw.githubusercontent.com/erich2s/bwg-usage-api/main/stash-tile.js"
+    interval: 86400
