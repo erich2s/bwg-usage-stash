@@ -1,6 +1,6 @@
-// Stash tile argument: {"BWG_VEID":"1234567","BWG_API_KEY":"your-api-key"}
+// Stash tile argument: {"name":"BWG 数据用量","BWG_VEID":"1234567","BWG_API_KEY":"your-api-key"}
 const tile = {
-  title: "数据用量",
+  title: "BWG 数据用量",
   icon: "network",
   backgroundColor: "#F02D55",
 };
@@ -35,6 +35,10 @@ const main = () => {
   if (options === null || typeof options !== "object" || Array.isArray(options)) {
     finish("argument 必须是 JSON 对象");
     return;
+  }
+
+  if (typeof options.name === "string" && options.name.trim()) {
+    tile.title = options.name.trim();
   }
 
   const veid =

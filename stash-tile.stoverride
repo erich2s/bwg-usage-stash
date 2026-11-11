@@ -3,6 +3,12 @@ desc: "BWG数据用量查询"
 
 arguments-version: 1
 arguments:
+  name:
+    type: input
+    title: "名称"
+    description: "卡片显示的标题"
+    default: "BWG数据用量"
+    required: true
   BWG_VEID:
     type: input
     title: "BWG VEID"
@@ -17,11 +23,11 @@ arguments:
 tiles:
   - name: bwg-usage
     interval: 43200
-    title: "数据用量"
+    title: '${args.name}'
     content: "正在获取流量..."
     icon: "network"
     backgroundColor: "#F02D55"
-    argument: '{"BWG_VEID":${args.BWG_VEID|json},"BWG_API_KEY":${args.BWG_API_KEY|json}}'
+    argument: '{"name":${args.name|json},"BWG_VEID":${args.BWG_VEID|json},"BWG_API_KEY":${args.BWG_API_KEY|json}}'
 
 script-providers:
   bwg-usage:
