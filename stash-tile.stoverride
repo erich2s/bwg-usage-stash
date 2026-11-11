@@ -25,5 +25,5 @@ tiles:
 
 script-providers:
   bwg-usage:
-    url: "https://raw.githubusercontent.com/erich2s/bwg-usage-api/main/stash-tile.js"
+    url: "https://raw.githubusercontent.com/erich2s/bwg-usage-stash/main/stash-tile.js"
     interval: 86400
